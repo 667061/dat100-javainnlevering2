@@ -4,47 +4,82 @@ public class Matriser {
 
 	// a)
 	public static void skrivUt(int[][] matrise) {
-		
-		// TODO
-		throw new UnsupportedOperationException("skrivUt ikke implementert");
+		for (int[] i : matrise) {
+			for (int j : i) {
+				System.out.println(j);
+			}
+		}
 	}
 
 	// b)
 	public static String tilStreng(int[][] matrise) {
-
-		// TODO
-		throw new UnsupportedOperationException("tilStreng ikke implementert");
+		String totString = "";
+		for (int[] i : matrise) {
+			for(int j : i) {
+				totString += j + " ";
+				
+			}
+			totString += "\n";
+		}
 		
+		
+		return totString;
 	}
 
 	// c)
 	public static int[][] skaler(int tall, int[][] matrise) {
-		
-		// TODO
-		throw new UnsupportedOperationException("skaler ikke implementert");
-	
+		int[][] mat = new int[matrise.length][matrise[1].length];
+		for (int i = 0; i < matrise.length; i++) {
+			for (int j = 0; j < matrise[i].length; j++) {
+				mat[i][j] = matrise[i][j]*tall;
+			}
+		}
+//		for (int i = 0; i < mat.length; i++) {
+//			for (int j = 0; j < mat[i].length; j++) {
+//				mat[i][j] *= tall;
+//			}
+//		}
+//		
+		return mat;
+
 	}
 
 	// d)
 	public static boolean erLik(int[][] a, int[][] b) {
-
-		// TODO
-		throw new UnsupportedOperationException("erLik ikke implementert");
+		boolean lik = true;
+		for (int i = 0; i < a.length; i++) {
+			for (int j = 0; j < a[i].length; j++) {
+				if(a[i][j] != b[i][j])
+					lik = false;
+			}
+		}
+		return lik;
 	}
 	
 	// e)
 	public static int[][] speile(int[][] matrise) {
-
-		// TODO
-		throw new UnsupportedOperationException("speile ikke implementert");
-	
+		int[] [] mat = new int[matrise.length] [matrise[0].length];
+		for(int i = 0; i<matrise.length;i++) {
+			for(int j = 0; j<matrise[0].length;j++) {
+				mat[j][i] = matrise[i][j];
+			}
+		}
+		
+		
+		
+		return mat;
 	}
 
 	// f)
 	public static int[][] multipliser(int[][] a, int[][] b) {
-
-		// TODO
-		throw new UnsupportedOperationException("multipliser ikke implementert");
-	
+		int[][] matProd = new int[b.length][a[0].length];
+		if (a[0].length == b.length) {
+			for (int i = 0; i < a.length; i++) {
+				for (int j = 0; j < a[i].length; j++) {
+					matProd[i][j] = a[i][j] * b[i][j];
+				}
+			}
+		} 
+		return matProd;
 	}
 }
