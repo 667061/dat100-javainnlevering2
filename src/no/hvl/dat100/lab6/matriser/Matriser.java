@@ -15,14 +15,13 @@ public class Matriser {
 	public static String tilStreng(int[][] matrise) {
 		String totString = "";
 		for (int[] i : matrise) {
-			for(int j : i) {
+			for (int j : i) {
 				totString += j + " ";
-				
+
 			}
 			totString += "\n";
 		}
-		
-		
+
 		return totString;
 	}
 
@@ -31,7 +30,7 @@ public class Matriser {
 		int[][] mat = new int[matrise.length][matrise[1].length];
 		for (int i = 0; i < matrise.length; i++) {
 			for (int j = 0; j < matrise[i].length; j++) {
-				mat[i][j] = matrise[i][j]*tall;
+				mat[i][j] = matrise[i][j] * tall;
 			}
 		}
 //		for (int i = 0; i < mat.length; i++) {
@@ -49,37 +48,39 @@ public class Matriser {
 		boolean lik = true;
 		for (int i = 0; i < a.length; i++) {
 			for (int j = 0; j < a[i].length; j++) {
-				if(a[i][j] != b[i][j])
+				if (a[i][j] != b[i][j])
 					lik = false;
 			}
 		}
 		return lik;
 	}
-	
+
 	// e)
 	public static int[][] speile(int[][] matrise) {
-		int[] [] mat = new int[matrise.length] [matrise[0].length];
-		for(int i = 0; i<matrise.length;i++) {
-			for(int j = 0; j<matrise[0].length;j++) {
+		int[][] mat = new int[matrise.length][matrise[0].length];
+		for (int i = 0; i < matrise.length; i++) {
+			for (int j = 0; j < matrise[0].length; j++) {
 				mat[j][i] = matrise[i][j];
 			}
 		}
-		
-		
-		
+
 		return mat;
 	}
 
 	// f)
 	public static int[][] multipliser(int[][] a, int[][] b) {
-		int[][] matProd = new int[b.length][a[0].length];
-		if (a[0].length == b.length) {
-			for (int i = 0; i < a.length; i++) {
-				for (int j = 0; j < a[i].length; j++) {
-					matProd[i][j] = a[i][j] * b[i][j];
+		int[][] matProd = new int[a.length][b[0].length];
+		if (a.length == b[0].length) {
+			for (int r = 0; r < a.length; r++) {
+				for (int k = 0; k < b[0].length; k++) {
+					for (int i = 0; i < a[0].length; i++) {
+						matProd[r][k] += a[r][i] * b[i][k];
+
+					}
 				}
+
 			}
-		} 
+		}
 		return matProd;
 	}
 }
